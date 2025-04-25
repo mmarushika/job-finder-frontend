@@ -26,7 +26,7 @@
     line-height: 35px;
 }
 
-.login-button {
+.large-button {
     font-size: 1em;
     font-weight: bold;
     width: 90%;
@@ -39,10 +39,12 @@
     color: white;
 }
 
-.login-button:hover {
+.large-button:hover {
     background-color: rgb(22, 202, 175);
+    color: rgb(0, 31, 48);
 }
-.login-input-field {
+
+select, input, textarea {
     font-size: 1em;
     color: white;
     width: 90%;
@@ -53,12 +55,12 @@
     border-bottom: solid rgb(22, 202, 175);
 }
 
-.signup-link {
+.link {
     color: white;
     font-weight: bold;
     text-decoration: none;
 }
-.signup-link:hover {
+.link:hover {
     color: rgb(22, 202, 175);
 }
 

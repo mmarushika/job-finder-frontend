@@ -5,10 +5,7 @@ import logo from "../../assets/job-finder-logo.png";
 import { useState } from 'react';
 import { Link } from 'react-router';
 
-function Login() {
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-    
+function Login({login}) {
     return (
         <div className="login">
             <div className="login-header">
@@ -18,21 +15,26 @@ function Login() {
                 <div className="nav-bar-header">Job Finder</div>
             </div>
             <div className="login-field">
-                <div className="login-field-wrapper">
-                    <input className="login-input-field" name="username" type="text" placeholder="Username" onChange={(e) => {
-                        setUsername(e.target.value);
-                    }}></input><br></br>
-                    <input className="login-input-field" name="username" type="password" placeholder="Password" onChange={(e) => {
-                        setPassword(e.target.value);
-                    }}></input><br></br>
+                <form className="login-field-wrapper" action={login}>
+                    <input name="username" type="text" placeholder="Username"></input><br></br>
+                    <input name="password" type="password" placeholder="Password"></input><br></br>
                     <br></br>
-                    <button className="login-button" onClick={() => { authenticate(username, password) }}>Login</button><br></br>
+                    <button className="large-button">Log In</button><br></br>
                     <div>- OR -</div>
-                    <Link className="signup-link" to="/signup" >Sign Up</Link>
-                </div>
+                    <Link className="link" to="/signup" >Sign Up</Link>
+                </form>
             </div>
         </div>
     )
 }
 
 export default Login;
+/*
+<input className="login-input-field" name="username" type="text" placeholder="Username" onChange={(e) => {
+                        setUsername(e.target.value);
+                    }}></input><br></br>
+                    <input className="login-input-field" name="username" type="password" placeholder="Password" onChange={(e) => {
+                        setPassword(e.target.value);
+                    }}></input><br></br>
+<button className="login-button" onClick={() => { authenticate(username, password) }}>Login</button><br></br>
+*/

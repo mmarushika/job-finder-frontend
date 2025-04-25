@@ -11,6 +11,7 @@
   }
 }
 
+
 body {
   margin: 0 auto;
 }
@@ -25,9 +26,14 @@ input:focus {
   color: white;
 }
 
+
+
 /*
 textarea is styled separately
 https://stackoverflow.com/questions/69452849/what-is-the-default-css-of-a-textarea
+
+autofill is styled separately
+https://stackoverflow.com/questions/29580704/change-input-background-to-transparent-on-autocomplete-form
 */
 
 /*

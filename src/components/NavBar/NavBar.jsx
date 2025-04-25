@@ -2,7 +2,9 @@ import "./NavBar.css";
 
 import logo from "../../assets/job-finder-logo.png";
 
-function NavBar() {
+import { Link } from 'react-router';
+
+function NavBar({user, logout}) {
     return (
         <div className="nav-bar">
             <div className="nav-bar-header-wrapper">
@@ -11,10 +13,14 @@ function NavBar() {
                 </div>
                 <div className="nav-bar-header">Job Finder</div>
             </div>
-            <div className="navigation-wrapper">
-                <div className="navigation">Profile</div>
-                <div className="navigation">Logout</div>
-            </div>
+            {
+                user.isAuthenticated ? 
+                <div className="navigation-wrapper">
+                    <Link to="/profile" className="navigation">Profile</Link>
+                    <div className="navigation" onClick={logout}>Logout</div>
+                </div>
+                : <></>
+            }
         </div>
     )
 }
