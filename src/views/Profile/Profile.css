@@ -7,6 +7,7 @@ select:required:invalid {
 }
 option[value=""][disabled] {
     display: none;
+    color: gray;
 }
 
 textarea {
@@ -23,16 +24,12 @@ input {
 }
 
 .wrapper {
+    margin: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.checkbox {
-    width: 100px;
-    display: flex;
-    align-items: center;
-}
  
 input[type="checkbox"] {
     width: 12px;
@@ -45,13 +42,17 @@ input[type="checkbox"] {
     flex-wrap: wrap;
     justify-content: left;
     align-items: left;
-    height: 55vh;
+    height:100%;
 }
 
 .fields {
     width: 30%;
-    height: 60vh;
     font-size: 15px;
+    height: 60vh;
+}
+
+.general {
+    height: 60vh;
 }
 
 .sub-header {
@@ -68,17 +69,15 @@ input[type="checkbox"] {
 }
 
 .medium-button {
-    font-size: 1em;
-    border: none;
-    border-radius: 10px;
-    margin-left: 20px;
-    vertical-align: middle;
     width: 100px;
     height: 40px;
-    background-color:rgb(130, 128, 128);
-    color: white;
 }
 
-.medium-button:hover {
-    background-color: rgb(62, 168, 235);
+.done-wrapper {
+    margin-top: 20px;
+    
+}
+
+.left {
+    float: right;
 }

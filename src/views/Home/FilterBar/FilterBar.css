@@ -1,0 +1,7 @@
+.filter-bar {
+    width: 50%;
+}
+
+.filter-bar .list {
+    height: 50vh;
+}

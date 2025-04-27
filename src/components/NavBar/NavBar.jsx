@@ -2,9 +2,10 @@ import "./NavBar.css";
 
 import logo from "../../assets/job-finder-logo.png";
 
-import { Link } from 'react-router';
+import { useNavigate } from 'react-router';
 
-function NavBar({user, logout}) {
+function NavBar({isAuthenticated, logout}) {
+    const navigate = useNavigate();
     return (
         <div className="nav-bar">
             <div className="nav-bar-header-wrapper">
@@ -14,9 +15,11 @@ function NavBar({user, logout}) {
                 <div className="nav-bar-header">Job Finder</div>
             </div>
             {
-                user.isAuthenticated ? 
+                isAuthenticated ? 
                 <div className="navigation-wrapper">
-                    <Link to="/profile" className="navigation">Profile</Link>
+                    <div className="navigation" onClick={() => navigate("/home")}>Home</div>
+                    <div className="navigation" onClick={() => navigate("/jobs")}>Post</div>
+                    <div className="navigation" onClick={() => navigate("/profile")}>Profile</div>
                     <div className="navigation" onClick={logout}>Logout</div>
                 </div>
                 : <></>

@@ -9,7 +9,7 @@ import NavBar from './components/NavBar/NavBar';
 import Login from './views/Login/Login';
 import SignUp from './views/SignUp/SignUp';
 import Home from './views/Home/Home';
-import JobList from './views/JobList/JobList';
+import UserJobListings from './views/UserJobListings/UserJobListings';
 import Profile from './views/Profile/Profile';
 
 import { get, post } from './services/fetchServices';
@@ -27,9 +27,11 @@ function App() {
     const username = formData.get("username");
     const password = formData.get("password");
     get(`http://localhost:8000/login?username=${username}&password=${password}`)
-      .then(() => {
-        if (user.isAuthenticated == true) {
+      .then((res) => {
+        console.log(res);
+        if (res.isAuthenticated == true) {
           setUser({ isAuthenticated: true, username: username });
+          navigate("/home");
         } else {
           navigate("/login");
         }
@@ -45,7 +47,7 @@ function App() {
     console.log(username, password);
     post(`http://localhost:8000/signup`, user)
       .then(setUser({ isAuthenticated: true, username: user.username }))
-      .then(navigate("/profile/"));
+      .then(navigate("/profile"));
   }
 
   function logout() {
@@ -53,16 +55,20 @@ function App() {
   }
   return (
     <div>
-      {user.isAuthenticated ? <NavBar user={user} logout={logout}/> : <></>}
+      {user.isAuthenticated ? <NavBar isAuthenticated={user.isAuthenticated} logout={logout}/> : <></>}
       <Routes>
+        <Route path="/" element= {<Navigate to={"/login"} />} />
         <Route path="/login" element={user.isAuthenticated ? <Navigate to={"/home"} /> : <Login login={login} />} />
         <Route path="/signup" element={<SignUp signup={signup} />} />
         <Route path="/home"
           element={<PrivateRoute isAuthenticated={user.isAuthenticated}
             view={<Home user={user.username} />} />}></Route>
-        <Route path="/profile/"
+        <Route path="/jobs"
           element={<PrivateRoute isAuthenticated={user.isAuthenticated}
-            view={<Profile user={user.username} mode="edit"/>} />}></Route>
+            view={<UserJobListings user={user.username} />} />}></Route>
+        <Route path="/profile"
+          element={<PrivateRoute isAuthenticated={user.isAuthenticated}
+            view={<Profile username={user.username} mode="edit"/>} />}></Route>
       </Routes>
 
     </div>
@@ -71,6 +77,10 @@ function App() {
 
 export default App;
 
+/* 
+<Route path="/home"
+          element={<PrivateRoute isAuthenticated={user.isAuthenticated}
+            view={<Home user={user.username} />} />}></Route>*/
 
 // Exporting Routes
 // https://stackoverflow.com/questions/43026690/declaring-react-routes-in-a-separate-file-and-importing

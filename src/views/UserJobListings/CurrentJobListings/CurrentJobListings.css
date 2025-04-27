@@ -1,0 +1,9 @@
+.current-job-listings {
+    width: 35%;
+    height: 100%;
+    margin-top: 25px;
+}
+
+.current-job-listings .list {
+    height: 60vh;
+}

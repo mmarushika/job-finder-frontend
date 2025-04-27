@@ -1,0 +1,10 @@
+.field {
+    padding: 7px;
+    display: flex;
+    height:fit-content;
+    border-radius: 25px;
+    border: solid gray;
+    color: gray;
+    font-weight: bold;
+    font-size: 0.85em;
+}

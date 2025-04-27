@@ -114,3 +114,11 @@ export function getProfessionalCategories() {
         "Fisheries & Wildlife"
     ]);
 }
+
+export function getFilterOptions() {
+    return ([
+        "All",
+        "User Profile",
+        "Custom"
+    ]);
+}
